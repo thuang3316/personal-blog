@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>My Blogs</h1>
+        <a href="/home">Read-Only Mode</a>
+        <a href="/admin/new">Add</a>
+    </div>
+    <ul>
+        <% blogs.map((blog) => {
+            %> 
+            <li>
+                <div class="blog-item">
+                    <div class="left">
+                        <h2> <%= blog.title%></h2>
+                    </div>
+                    <div class="right">
+                        <a href="/admin/edit/<%= blog.id %>">Edit</a>
+                        <a href="/admin/delete/<%= blog.id %>">Delete</a>
+                    </div>
+                </div>
+            </li> <%
+        }) %>
+    </ul>
+</body>
+</html>
