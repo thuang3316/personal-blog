@@ -1,5 +1,5 @@
 # personal-blog
-Basic personal blog page hosted currently on localhost. Using postgresql to store blog data. 
+Basic personal blog page (based on [https://roadmap.sh/projects/personal-blog](roadmap.sh)) hosted currently on localhost. Using postgresql to store blog data. 
 
 Add basic authentication for access of editing and deleting blogs.
 
