@@ -14,7 +14,25 @@ async function getSingleBlog(req, res) {
     res.render("blog", {blog, formattedDate});
 }
 
+async function getSearchResults(req, res) {
+    const query = req.query.title;
+    if (!query) {
+        return res.redirect("/home");
+    }
+    try {
+        const blogs = await db.searchBlogByTitle(query);
+        res.render("home",{
+            blogs,
+            query
+        })
+    } catch(error) {
+        console.error(error);
+        res.status(500).send('Error searching blogs');
+    }
+}
+
 module.exports = {
     getHomePage,
-    getSingleBlog
+    getSingleBlog,
+    getSearchResults
 }
