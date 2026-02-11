@@ -70,11 +70,30 @@ async function postAddedBlog(req, res) {
     }
 }
 
+// search bar
+async function getSearchResults(req, res) {
+    const query = req.query.title;
+    if (!query) {
+        return res.redirect("/admin");
+    }
+    try {
+        const blogs = await db.searchBlogByTitle(query);
+        res.render("admin",{
+            blogs,
+            query
+        })
+    } catch(error) {
+        console.error(error);
+        res.status(500).send('Error searching blogs');
+    }
+}
+
 module.exports = {
     getAdminPage,
     getEditPage,
     postEditedBlog,
     deleteBlog,
     getAddPage,
-    postAddedBlog
+    postAddedBlog,
+    getSearchResults,
 }
