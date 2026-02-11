@@ -14,9 +14,9 @@ CREATE TABLE IF NOT EXISTS blogs (
 
 INSERT INTO blogs (title, content, type, publish_date) 
 VALUES
-  ('A Day in My Life', 'Hello world!', 'personal', 'Jan 15, 2025'),
+  ('A Day in My Life', 'Hello world!', 'life', 'Jan 15, 2025'),
   ('Tech Review', 'Hello world!', 'tech', 'Feb 1, 2026'),
-  ('Pasta Recipe', 'Hello world!', 'food', 'Feb 8, 2026');
+  ('Pasta Recipe', 'Hello world!', 'life', 'Feb 8, 2026');
 `;
 
 async function main() {
