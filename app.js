@@ -15,7 +15,7 @@ app.use('/admin', adminRouter);
 app.use('/home', homeRouter);
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.render("index.ejs");
 });
 
 app.listen(port, () => {
