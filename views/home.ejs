@@ -7,24 +7,55 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <div class="header">
-        <h1>My Blogs</h1>
-        <a href="/admin">Login to Edit</a>
-    </div>
-    <ul>
-        <% blogs.map((blog) => {
-            %> 
-            <li>
-                <div class="blog-item">
-                    <div class="left">
-                        <h2> <%= blog.title%></h2>
+    <div class="container">
+        <nav class="admin-nav">
+            <form action="/home/search" method="GET">
+                <input 
+                    type="text" 
+                    name="title" 
+                    placeholder="Search blogs..." 
+                    value="<%= typeof query !== 'undefined' ? query : '' %>"
+                />
+                <button type="submit">Search</button>
+            </form>
+            <a href="/admin">Login to Edit</a>
+        </nav>
+        <div class="header">
+            <h1>My Blogs</h1>
+            <div class="functions">
+                <div>Filter: </div>
+                <select id="typeFilter">
+                    <option value="">any</option>
+                    <option value="life" <%= typeof type !== 'undefined' && type === 'life' ? 'selected' : '' %>>life</option>
+                    <option value="tech" <%= typeof type !== 'undefined' && type === 'tech' ? 'selected' : '' %>>tech</option>
+                    <option value="other" <%= typeof type !== 'undefined' && type === 'other' ? 'selected' : '' %>>other</option>
+                </select>
+                <div>Order by: </div>
+                <select id="orderSwitch">
+                    <option value="">Default</option>
+                    <option value="publish_date">Publish Date</option>
+                    <option value="title">Title</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="blogsList">
+            <% blogs.forEach(blog => { %>
+                <div class="blog-item" 
+                    data-type="<%= blog.type %>"
+                    data-title="<%= blog.title %>"
+                    data-date="<%= blog.publish_date %>">
+                    <div class="blog-info">
+                        <h3><%= blog.title %></h3>
+                        <p><%= blog.type %></p> 
                     </div>
-                    <div class="right">
+                    <div class="blog-actions">
                         <a href="/home/<%= blog.id %>">View</a>
                     </div>
                 </div>
-            </li> <%
-        }) %>
-    </ul>
+            <% }); %>
+        </div>
+    </div>
+        <script src="/js/filterSort.js"></script>
 </body>
 </html>
