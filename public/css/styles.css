@@ -6,3 +6,178 @@
 body, a, input, textarea, button, select {
     font-family: 'handwritten';
 }
+body {
+    margin-top: 0;
+}
+.container {
+    width: clamp(45ch, 50%, 75ch);
+    justify-self: center;
+    padding: 8px;
+    background-color: rgb(255, 255, 248);
+    display: flex;
+    flex-direction: column;
+}
+a {
+    text-decoration: none;
+}
+h1, h2, h3 {
+    margin: 8px 0;
+}
+
+.admin-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(80, 80, 63);
+    padding: 4px 8px;
+}
+.admin-nav a {
+    background-color: beige;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: black;
+    transition: background-color 0.2s;
+}
+button:hover, a:hover {
+    cursor: pointer;
+}
+.admin-nav a:hover {
+    background-color: rgb(238, 238, 170);
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: beige;
+    padding: 0 8px;
+}
+.functions {
+    display: flex;
+    gap: 4px;
+}
+
+#blogsList {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(253, 253, 232);
+    padding: 4px 8px;
+    gap: 4px;
+}
+.blog-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+    background-color: rgb(228, 228, 176);
+    border-radius: 10px;
+}
+.blog-info {
+    display: inherit;
+    align-items: center;
+    gap: 4px;
+}
+.blog-actions{
+    display: inherit;
+    align-items: center;
+    gap: 10px;
+}
+.blog-info>p{
+    background-color: blueviolet;
+    color: azure;
+    padding: 1px 4px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+.blog-actions a {
+    color: black;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+.blog-actions a:hover {
+    transform: scale(1.05);
+}
+
+/* blog-page */
+.return-link {
+    color: black;
+    background-color: bisque;
+    padding: 2px 4px;
+    border-radius: 4px;
+    transition: transform 0.2s;
+    width: 5ch;
+    text-align: center;
+    align-self: center;
+}
+.return-link:hover{
+    transform: scale(1.05);
+}
+.content {
+    padding: 4px;
+}
+.content p {
+    margin-top: 0;
+}
+
+/* editBlog */
+.errors {
+    display: flex;
+    flex-direction: column;
+    background-color: crimson;
+    color: white;
+    padding: 4px 8px;
+    gap: 4px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.errors ul {
+    margin: 0;
+}
+.editForm {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.blog-headers {
+    display: flex;
+    gap: 4px;
+}
+textarea {
+    width: 100%;
+    min-height: 300px;
+}
+.edit-options a, .edit-options button {
+    color: white;
+    background-color: crimson;
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-weight: bold;
+    transition: opacity 0.1s;
+}
+.edit-options button {
+    color: black;
+    background-color: greenyellow;
+    font-size: 16px;
+    border: none;
+}
+.edit-options a:hover, .edit-options button:hover {
+    opacity: 0.6;
+}
+/* index.ejs */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.nav-links a {
+    color: black;
+    font-weight: bold;
+    background-color: beige;
+    border-radius: 4px;
+    padding: 4px 8px;
+    transition: opacity 0.1s;
+}
+.nav-links a:hover {
+    opacity: 0.6;;
+}
